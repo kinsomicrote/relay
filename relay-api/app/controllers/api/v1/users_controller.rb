@@ -42,7 +42,7 @@ module Api::V1
     # DELETE /users/1
     def destroy
       @loggeduser = User.find(params[:user_id])
-      if @loggeduser.can?(:find, Strongbolt::Role)
+      if @loggeduser.can?(:destroy, Strongbolt::Role)
         @user.destroy
       else
         render json: @user
